@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "CareCeiver",
+    "slug": "careceiver_app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./res/icon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./res/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./res/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./res/favicon.png"
+    }
+  }
+}
