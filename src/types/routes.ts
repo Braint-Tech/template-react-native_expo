@@ -12,7 +12,6 @@ export type RootStackParamList = {
   Modal: undefined;
   SignIn: undefined;
   SignUp: undefined;
-  Settings: undefined;
   NotFound: undefined;
   AuthSettings: undefined;
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
@@ -22,11 +21,9 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
   NativeStackScreenProps<RootStackParamList, Screen>;
 
 export type RootTabParamList = {
-  Home: undefined;
-  News: undefined;
-  Calendar: undefined;
-  Medicines: undefined;
-  Careceivers: undefined;
+  TabOne: undefined;
+  TabTwo: undefined;
+  TabThree: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =

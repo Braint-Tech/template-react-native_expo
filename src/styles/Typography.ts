@@ -1,32 +1,40 @@
 import { scaleFont } from "./Layout";
 
 // FONT FAMILY
-export const family_regular = "OpenSans-Regular";
-export const family_bold = "OpenSans-Bold";
-
-// FONT WEIGHT
-export const weight_regular = "400";
-export const weight_bold = "700";
+export const familyBold = "Montserrat-Bold";
+export const familyLight = "Montserrat-Light";
+export const familyRegular = "Montserrat-Regular";
+export const familySemibold = "Montserrat-Semibold";
 
 // FONT SIZE
-export const size_24 = scaleFont(28);
-export const size_18 = scaleFont(18);
-export const size_16 = scaleFont(16);
-export const size_14 = scaleFont(14);
-export const size_12 = scaleFont(12);
+export const size28 = scaleFont(28);
+export const size18 = scaleFont(18);
+export const size16 = scaleFont(16);
+export const size14 = scaleFont(14);
+export const size12 = scaleFont(12);
 
 // LINE HEIGHT
-export const line_height_24 = scaleFont(24);
-export const line_height_20 = scaleFont(20);
-export const line_height_16 = scaleFont(16);
+export const lineHeight30 = scaleFont(30);
+export const lineHeight20 = scaleFont(20);
+export const lineHeight16 = scaleFont(16);
 
 // FONT STYLE
-export const regular = {
-  fontFamily: family_regular,
-  fontWeight: weight_regular,
+export const fontBold = {
+  letterSpacing: -0.5,
+  fontFamily: familyBold,
 };
 
-export const bold = {
-  fontFamily: family_bold,
-  fontWeight: weight_bold,
+export const fontLight = {
+  letterSpacing: -0.5,
+  fontFamily: familyLight,
+};
+
+export const fontRegular = {
+  letterSpacing: -0.5,
+  fontFamily: familyRegular,
+};
+
+export const fontSemibold = {
+  letterSpacing: -0.5,
+  fontFamily: familySemibold,
 };

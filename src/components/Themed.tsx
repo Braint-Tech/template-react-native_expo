@@ -1,8 +1,13 @@
-import * as React from "react";
-import { Text as DefaultText, View as DefaultView } from "react-native";
+import React from "react";
+import {
+  StyleProp,
+  ViewStyle,
+  Text as DefaultText,
+  View as DefaultView,
+} from "react-native";
 
 import Colors from "../styles/Colors";
-import useColorScheme from "../hooks/useColorScheme";
+import { useColorScheme } from "../hooks";
 
 export function useThemeColor(
   props: { light?: string; dark?: string },
@@ -20,19 +25,12 @@ export function useThemeColor(
 
 type ThemeProps = {
   row?: boolean;
+  spaced?: boolean;
   center?: boolean;
   darkColor?: string;
   container?: boolean;
   lightColor?: string;
 };
-
-interface ContainerParams {
-  flex: number;
-  alignItems: string;
-  justifyContent: string;
-  paddingVertical: number;
-  paddingHorizontal: number;
-}
 
 export type TextProps = ThemeProps & DefaultText["props"];
 export type ViewProps = ThemeProps & DefaultView["props"];
@@ -45,30 +43,31 @@ export function Text(props: TextProps) {
 }
 
 export function View(props: ViewProps) {
-  const { style, lightColor, darkColor, container, row, center, ...otherProps } = props;
+  let extraStyle: StyleProp<ViewStyle>;
+  const { style, ...otherProps } = props;
   const backgroundColor = useThemeColor(
-    { light: lightColor, dark: darkColor },
+    { light: props.lightColor, dark: props.darkColor },
     "background"
   );
 
-  const extra: ContainerParams | Object = container
-    ? {
-        flex: 1,
-        paddingVertical: 16,
-        alignItems: "center",
-        paddingHorizontal: 36,
-        justifyContent: center ? "center" : "flex-start",
-      }
-    : row
-    ? {
-        display: "flex",
-        overflow: "hidden",
-        whiteSpace: "noWrap",
-        alignItems: "center",
-        flexDirection: "row",
-        justifyContent: "flex-start",
-      }
-    : {};
+  if (props.container)
+    extraStyle = {
+      flex: 1,
+      alignItems: "center",
+      paddingHorizontal: 32,
+      justifyContent: props.center ? "center" : "flex-start",
+    };
+  else if (props.row)
+    extraStyle = {
+      overflow: "hidden",
+      alignItems: "center",
+      flexDirection: "row",
+      justifyContent: props.center
+        ? "center"
+        : props.spaced
+        ? "space-between"
+        : "flex-start",
+    };
 
-  return <DefaultView style={[{ backgroundColor }, extra, style]} {...otherProps} />;
+  return <DefaultView style={[{ backgroundColor }, extraStyle, style]} {...otherProps} />;
 }

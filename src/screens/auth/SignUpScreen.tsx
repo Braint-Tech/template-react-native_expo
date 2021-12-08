@@ -124,7 +124,7 @@ export default function SignUpScreen() {
                     disabled={loading || !isValid}
                     labelStyle={[
                       styles.buttonLabel,
-                      { color: loading || !isValid ? Colors.dark_gray : Colors.white },
+                      { color: loading || !isValid ? Colors.darkGray : Colors.white },
                     ]}
                   >
                     CRIAR CONTA

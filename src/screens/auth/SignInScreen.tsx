@@ -21,7 +21,7 @@ export default function SignInScreen() {
   const navigation = useNavigation();
 
   return (
-    <Screen title="Careceiver" logo>
+    <Screen>
       <Card style={{ width: "100%" }}>
         <Card.Content>
           <Formik

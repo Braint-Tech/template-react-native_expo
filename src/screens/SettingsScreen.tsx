@@ -8,7 +8,7 @@ import { StyleSheet, TouchableOpacity } from "react-native";
 import Colors from "../styles/Colors";
 import { useAuth } from "../contexts";
 import { Screen } from "../components/atoms";
-import { size_16 } from "../styles/Typography";
+import { size16 } from "../styles/Typography";
 import { View, Text } from "../components/Themed";
 
 export default function SettingsScreen() {
@@ -17,7 +17,7 @@ export default function SettingsScreen() {
   const [enabled, setEnabled] = useState(true);
 
   return (
-    <Screen title="Definições" icon="cog">
+    <Screen>
       <Card style={styles.card}>
         <Card.Content>
           <Picker
@@ -27,7 +27,7 @@ export default function SettingsScreen() {
           >
             <Picker.Item
               enabled={enabled}
-              color={Colors.dark_gray}
+              color={Colors.darkGray}
               label="Seleccionar Idioma"
             ></Picker.Item>
             <Picker.Item label="Português" value="pt"></Picker.Item>
@@ -39,7 +39,7 @@ export default function SettingsScreen() {
               size={24}
               name="info-outline"
               style={styles.icon}
-              color={Colors.dark_gray}
+              color={Colors.darkGray}
             />
             <Text style={styles.iconText}>Versão: 0.6.0</Text>
           </View>
@@ -52,7 +52,7 @@ export default function SettingsScreen() {
                     size={24}
                     name="lock"
                     style={styles.icon}
-                    color={Colors.dark_gray}
+                    color={Colors.darkGray}
                   />
                   <Text style={styles.iconText}>Terminar Sessão</Text>
                 </View>
@@ -68,6 +68,6 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
   card: { width: "100%" },
   icon: { marginRight: 12 },
-  iconText: { fontSize: size_16 },
+  iconText: { fontSize: size16 },
   listItem: { paddingVertical: 20, paddingHorizontal: 12 },
 });

@@ -1,20 +1,14 @@
-import * as React from "react";
+import React from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { HeaderClose, ScreenConfig } from "../components/atoms";
-import { RootStackParamList, RootTabParamList } from "../types";
-
-import Home from "../screens/tabs/Home";
-import News from "../screens/tabs/News";
-import Calendar from "../screens/tabs/Calendar";
+import TabOne from "../screens/tabs/TabOne";
+import TabTwo from "../screens/tabs/TabTwo";
+import TabThree from "../screens/tabs/TabThree";
 import ModalScreen from "../screens/ModalScreen";
-import { LeftHeader } from "../components/atoms";
-import Medicines from "../screens/tabs/Medicines";
-import Careceivers from "../screens/tabs/Careceivers";
 import NotFoundScreen from "../screens/NotFoundScreen";
-import SettingsScreen from "../screens/SettingsScreen";
+import { RootStackParamList, RootTabParamList } from "../types";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -22,17 +16,9 @@ export function HomeNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Root" component={BottomTabNavigator} />
-      <Stack.Screen
-        name="Settings"
-        component={SettingsScreen}
-        options={({ navigation }) => HeaderClose(navigation)}
-      />
-      <Stack.Screen
-        name="NotFound"
-        component={NotFoundScreen}
-        options={{ title: "Oops!" }}
-      />
-      <Stack.Group screenOptions={{ presentation: "modal" }}>
+      <Stack.Screen name="NotFound" component={NotFoundScreen} />
+
+      <Stack.Group screenOptions={{ presentation: "modal", headerShown: true }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
     </Stack.Navigator>
@@ -43,63 +29,45 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
   return (
-    <BottomTab.Navigator
-      initialRouteName="Home"
-      screenOptions={({ route, navigation }) =>
-        ScreenConfig(route.name, navigation, true)
-      }
-    >
+    <BottomTab.Navigator initialRouteName="TabOne">
       <BottomTab.Screen
-        name="Home"
-        component={Home}
+        name="TabOne"
+        component={TabOne}
         options={{
-          title: "Início",
+          title: "First Tab",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
+
       <BottomTab.Screen
-        name="Medicines"
-        component={Medicines}
-        options={({ navigation }) => ({
-          title: "Medicação",
-          headerLeft: LeftHeader(navigation),
-          tabBarIcon: ({ color }) => <TabBarIcon name="pills" color={color} />,
-        })}
+        name="TabTwo"
+        component={TabTwo}
+        options={{
+          title: "Second Tab",
+          tabBarIcon: ({ color }) => <TabBarIcon name="globe" color={color} />,
+        }}
       />
+
       <BottomTab.Screen
-        name="Calendar"
-        component={Calendar}
-        options={({ navigation }) => ({
-          title: "Agenda",
-          headerLeft: LeftHeader(navigation),
-          tabBarIcon: ({ color }) => <TabBarIcon name="calendar" color={color} />,
-        })}
-      />
-      <BottomTab.Screen
-        name="Careceivers"
-        component={Careceivers}
-        options={({ navigation }) => ({
-          title: "Cuidadores",
-          headerLeft: LeftHeader(navigation),
-          tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
-        })}
-      />
-      <BottomTab.Screen
-        name="News"
-        component={News}
-        options={({ navigation }) => ({
-          title: "Notícias",
-          headerLeft: LeftHeader(navigation),
-          tabBarIcon: ({ color }) => <TabBarIcon name="newspaper" color={color} />,
-        })}
+        name="TabThree"
+        component={TabThree}
+        options={{
+          title: "Third Tab",
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="user-alt" color={color} iconSize={16} />
+          ),
+        }}
       />
     </BottomTab.Navigator>
   );
 }
 
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome5>["name"];
   color: string;
+  iconSize?: number;
+  name: React.ComponentProps<typeof FontAwesome5>["name"];
 }) {
-  return <FontAwesome5 size={20} style={{ marginBottom: -6 }} {...props} />;
+  return (
+    <FontAwesome5 size={props.iconSize || 20} style={{ marginBottom: -8 }} {...props} />
+  );
 }

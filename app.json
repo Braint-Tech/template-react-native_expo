@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "CareCeiver",
-    "slug": "careceiver_app",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./res/icon.png",
     "scheme": "myapp",
+    "name": "template",
+    "slug": "template",
+    "version": "1.0.0",
+    "icon": "./res/icon.png",
+    "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./res/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./res/splash.png",
+      "backgroundColor": "#FEFEFE"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -21,8 +21,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./res/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#FEFEFE",
+        "foregroundImage": "./res/adaptive-icon.png"
       }
     },
     "web": {

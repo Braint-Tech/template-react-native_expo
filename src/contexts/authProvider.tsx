@@ -1,10 +1,11 @@
-import { useCommon } from "./commonProvider";
 import * as SecureStore from "expo-secure-store";
-import { signIn, signUp } from "../services/auth";
-import { SignInParams, SignUpParams } from "../types";
-import { handlePromise } from "../hooks/handlePromise";
 import React, { useState, createContext, useContext, useEffect } from "react";
+
+import { useCommon } from "./commonProvider";
+import { usePromiseHandler } from "../hooks";
+import { signIn, signUp } from "../services/auth";
 import { DropDownHolder } from "../components/atoms";
+import { SignInParams, SignUpParams } from "../types";
 
 interface AuthContextData {
   user: boolean;
@@ -32,7 +33,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   async function authSignIn(data: SignInParams) {
     setLoading(true);
-    const [result, error] = await handlePromise(signIn(data));
+    const [result, error] = await usePromiseHandler(signIn(data));
     if (!!error) {
       DropDownHolder.alert("error", "Erro: ", error.response.status);
       setLoading(false);
@@ -47,7 +48,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   async function authSignUp(data: SignUpParams) {
     setLoading(true);
-    const [result, error] = await handlePromise(signUp(data));
+    const [result, error] = await usePromiseHandler(signUp(data));
     if (!!error) {
       console.log(error.response);
       DropDownHolder.alert("error", "Erro: ", error.response.status);

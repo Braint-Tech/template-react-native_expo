@@ -1,34 +1,45 @@
+const white = "#FEFEFE";
+const black = "#020202";
 const primary = "#3F71CE";
-const light = "#F5F5F5";
+const secondary = "#2B303A";
 
 export default {
-  white: "#FFF",
-  black: "#091018",
+  // Basic colors
+  white: white,
+  black: black,
   primary: primary,
-  secondary: "#2B303A",
+  secondary: secondary,
   alternative: "#519E8A",
 
-  light_gray: "#e6e6e6",
-  medium_gray: "#cacaca",
-  dark_gray: "#8a8a8a",
+  // Gray variants
+  darkGray: "#8a8a8a",
+  lightGray: "#e6e6e6",
+  mediumGray: "#cacaca",
 
-  success: "#50723C",
-  warning: "#f2a541",
+  // Highlight colors
   alert: "#c42021",
+  warning: "#f2a541",
+  success: "#50723C",
+
+  // Light color scheme
   light: {
-    text: "#000",
+    text: black,
     tint: primary,
-    background: light,
+    background: white,
     tabIconDefault: "#ccc",
     tabIconSelected: primary,
   },
+
+  // Dark color scheme
   dark: {
-    tint: light,
-    text: light,
-    background: "#000",
+    text: white,
+    tint: secondary,
+    background: black,
     tabIconDefault: "#ccc",
-    tabIconSelected: light,
+    tabIconSelected: white,
   },
+
+  // Shadow color with opacity
   shadow: function shadow(opacity: string = "0.6") {
     return `rgba("100", "100", "100", ${opacity})`;
   },

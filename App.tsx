@@ -1,28 +1,27 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
+import { Provider as PaperProvider } from "react-native-paper";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import Routes from "./src/routes";
-import useColorScheme from "./src/hooks/useColorScheme";
-import { AuthProvider, CommonProvider } from "./src/contexts";
-import useCachedResources from "./src/hooks/useCachedResources";
+import { PaperTheme } from "./src/styles/Theme";
+import { CommonProvider } from "./src/contexts";
+import { useAsyncRes, useColorScheme } from "./src/hooks";
 
 export default function App() {
   const colorScheme = useColorScheme();
-  const isLoadingComplete = useCachedResources();
+  const isLoadingComplete = useAsyncRes();
 
-  if (!isLoadingComplete) {
-    return null;
-  } else {
+  if (!isLoadingComplete) return null;
+  else
     return (
       <SafeAreaProvider>
-        <CommonProvider>
-          <AuthProvider>
-            <StatusBar />
+        <PaperProvider theme={PaperTheme}>
+          <CommonProvider>
+            <StatusBar translucent />
             <Routes colorScheme={colorScheme} />
-          </AuthProvider>
-        </CommonProvider>
+          </CommonProvider>
+        </PaperProvider>
       </SafeAreaProvider>
     );
-  }
 }

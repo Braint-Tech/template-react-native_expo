@@ -1,13 +1,12 @@
+import React, { ReactChildren, ReactElement } from "react";
 import { StyleProp, ViewStyle } from "react-native";
-import { IconSource } from "react-native-paper/lib/typescript/components/Icon";
 import { TextInputProps } from "react-native-paper/lib/typescript/components/TextInput/TextInput";
 
 export interface ScreenParams {
-  url?: string;
-  title: string;
-  logo?: boolean;
+  fab?: boolean;
+  center?: boolean;
   scroll?: boolean;
-  icon?: IconSource;
+  children: ReactElement | ReactElement[];
 }
 
 export interface TextInputParams extends Omit<TextInputProps, "theme"> {
@@ -16,10 +15,9 @@ export interface TextInputParams extends Omit<TextInputProps, "theme"> {
   theme?: ReactNativePaper.Theme;
 }
 
-// export type TextInputParams = InputParams & TextInputProps;
-
 interface FabActionsParams {
   icon: string;
+  color: string;
   label: string;
   onPress: () => void;
   style: StyleProp<ViewStyle>;
