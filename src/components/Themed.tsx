@@ -8,6 +8,7 @@ import {
 
 import Colors from "../styles/Colors";
 import { useColorScheme } from "../hooks";
+import { TextProps, ViewProps } from "../types";
 
 export function useThemeColor(
   props: { light?: string; dark?: string },
@@ -22,18 +23,6 @@ export function useThemeColor(
     return Colors[theme][colorName];
   }
 }
-
-type ThemeProps = {
-  row?: boolean;
-  spaced?: boolean;
-  center?: boolean;
-  darkColor?: string;
-  container?: boolean;
-  lightColor?: string;
-};
-
-export type TextProps = ThemeProps & DefaultText["props"];
-export type ViewProps = ThemeProps & DefaultView["props"];
 
 export function Text(props: TextProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;

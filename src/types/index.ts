@@ -4,13 +4,15 @@ import {
   RootTabScreenProps,
   RootStackScreenProps,
 } from "./routes";
-import { SignInParams, SignUpParams } from "./auth";
-import { ScreenParams, FabParams, TextInputParams } from "./components";
+import { QueryTypes, QueryParams } from "./services";
+import { TextProps, ViewProps, ScreenParams, FabParams, TextInputParams } from "./atoms";
 
 export {
+  TextProps,
+  ViewProps,
   FabParams,
-  SignInParams,
-  SignUpParams,
+  QueryTypes,
+  QueryParams,
   ScreenParams,
   TextInputParams,
   RootTabParamList,
