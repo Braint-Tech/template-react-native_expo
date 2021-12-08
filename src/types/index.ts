@@ -5,7 +5,14 @@ import {
   RootStackScreenProps,
 } from "./routes";
 import { QueryTypes, QueryParams } from "./services";
-import { TextProps, ViewProps, ScreenParams, FabParams, TextInputParams } from "./atoms";
+import {
+  TextProps,
+  ViewProps,
+  FabParams,
+  ScreenParams,
+  TextInputParams,
+  ScaledImageParams,
+} from "./atoms";
 
 export {
   TextProps,
@@ -16,6 +23,7 @@ export {
   ScreenParams,
   TextInputParams,
   RootTabParamList,
+  ScaledImageParams,
   RootStackParamList,
   RootTabScreenProps,
   RootStackScreenProps,

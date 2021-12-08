@@ -41,3 +41,10 @@ export interface FabParams {
   actions: Array<FabActionsParams>;
   onStateChange: (state: boolean) => void;
 }
+
+export interface ScaledImageParams {
+  uri: any;
+  scale: number;
+  width: number;
+  height: number;
+}
