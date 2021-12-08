@@ -15,50 +15,23 @@ const linking: LinkingOptions<RootStackParamList> = {
     screens: {
       Root: {
         screens: {
-          Home: {
+          TabOne: {
             screens: {
-              HomeScreen: "home",
+              HomeScreen: "tabOne",
             },
           },
-          Medicines: {
+          TabTwo: {
             screens: {
-              MedicinesScreen: "medicines",
+              MedicinesScreen: "tabTwo",
             },
           },
-          Calendar: {
+          TabThree: {
             screens: {
-              CalendarScreen: "calendar",
-            },
-          },
-          Careceivers: {
-            screens: {
-              CareceiversScreen: "careceivers",
-            },
-          },
-          News: {
-            screens: {
-              NewsScreen: "news",
+              CalendarScreen: "tabThree",
             },
           },
         },
       },
-      Settings: {
-        screens: {
-          SettingsScreen: "settings",
-        },
-      },
-      SignIn: {
-        screens: {
-          SignInScreen: "signin",
-        },
-      },
-      SignUp: {
-        screens: {
-          SignUpScreen: "signup",
-        },
-      },
-      Modal: "modal",
-      NotFound: "*",
     },
   },
 };

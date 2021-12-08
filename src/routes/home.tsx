@@ -7,7 +7,6 @@ import TabOne from "../screens/tabs/TabOne";
 import TabTwo from "../screens/tabs/TabTwo";
 import TabThree from "../screens/tabs/TabThree";
 import ModalScreen from "../screens/ModalScreen";
-import NotFoundScreen from "../screens/NotFoundScreen";
 import { RootStackParamList, RootTabParamList } from "../types";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -16,7 +15,6 @@ export function HomeNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Root" component={BottomTabNavigator} />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} />
 
       <Stack.Group screenOptions={{ presentation: "modal", headerShown: true }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
