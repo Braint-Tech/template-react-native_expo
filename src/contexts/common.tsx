@@ -31,7 +31,7 @@ export const CommonProvider: React.FC = ({ children }) => {
       return;
     } else {
       // TODO: Set then actions
-      DropDownHolder.alert("success", "Erro: ", error.response.status);
+      DropDownHolder.alert("success", "Sucesso: ", "Mensagem");
     }
   }
 

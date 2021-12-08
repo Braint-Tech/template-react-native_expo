@@ -9,7 +9,7 @@ export const Screen: React.FC<ScreenParams> = ({ fab, scroll, center, children }
   const styles = StyleSheet.create({
     main: { paddingTop: center ? 0 : 32 },
 
-    scrollPadding: { paddingBottom: 128 },
+    scrollPadding: { paddingTop: 32, paddingBottom: 64 },
 
     scrollable: {
       display: "flex",
@@ -20,7 +20,9 @@ export const Screen: React.FC<ScreenParams> = ({ fab, scroll, center, children }
 
   const finalView = scroll ? (
     <ScrollView style={styles.scrollable}>
-      <View style={styles.scrollPadding}>{children}</View>
+      <View lightColor="#F8F8F8" style={styles.scrollPadding}>
+        {children}
+      </View>
     </ScrollView>
   ) : (
     <View container center={center} style={styles.main} lightColor="#F8F8F8">

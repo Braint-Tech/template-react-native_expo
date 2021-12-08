@@ -5,8 +5,8 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import Routes from "./src/routes";
 import { PaperTheme } from "./src/styles/Theme";
-import { CommonProvider } from "./src/contexts";
 import { useAsyncRes, useColorScheme } from "./src/hooks";
+import { AuthProvider, CommonProvider } from "./src/contexts";
 
 export default function App() {
   const colorScheme = useColorScheme();
@@ -18,8 +18,10 @@ export default function App() {
       <SafeAreaProvider>
         <PaperProvider theme={PaperTheme}>
           <CommonProvider>
-            <StatusBar translucent />
-            <Routes colorScheme={colorScheme} />
+            <AuthProvider>
+              <StatusBar translucent />
+              <Routes colorScheme={colorScheme} />
+            </AuthProvider>
           </CommonProvider>
         </PaperProvider>
       </SafeAreaProvider>

@@ -4,7 +4,7 @@ import {
   RootTabScreenProps,
   RootStackScreenProps,
 } from "./routes";
-import { QueryTypes, QueryParams } from "./services";
+import { QueryTypes, QueryParams, SignInParams, SignUpParams } from "./services";
 import {
   TextProps,
   ViewProps,
@@ -21,6 +21,8 @@ export {
   QueryTypes,
   QueryParams,
   ScreenParams,
+  SignInParams,
+  SignUpParams,
   TextInputParams,
   RootTabParamList,
   ScaledImageParams,
